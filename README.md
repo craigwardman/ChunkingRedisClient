@@ -13,10 +13,10 @@ Those being:
      ~ IRedisReader<TKey, Item> -> JsonRedisReader or ChunkedJsonRedisReader<br/>
      ~ IRedisWriter<TKey, Item> -> JsonRedisDeleter or ChunkedJsonRedisDeleter<br/>
      (note: for one combination of TKey, TItem - ensure the decision to chunk or not is consistent)<br/>
+     ~ IKeygen<TKey> to GenericKeygen<TKey>, or implement a specific one like GuidKeygen<br/>
      ~ For chunking, locking is required:<br/>
              IRedisLockFactory -> RedisLockFactory<br/>
              To override the default of InMemoryRedisLock, call RedisLockFactory.Use<IRedisLock>() <-- your class here<br/>
-     ~ IKeygen<TKey> to GenericKeygen<TKey>, or implement a specific one like GuidKeygen<br/>
      
 * Strongly typed access to the cache<br/>
   - Use any C# object as your TKey and TItem, given that:<br/>
