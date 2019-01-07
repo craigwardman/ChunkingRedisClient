@@ -5,44 +5,44 @@ The purpose of this library is to create a re-usable library of code (NB. which 
 
 Those being:
 
-* IoC wrappers/abstractions
-   - Just take your dependency on "IRedisClient<TKey, TItem>"
-   - By default you should configure your DI container to inject the provided RedisClient<TKey, TItem>
-   - Since IoC is used throughout you also need to configure:
-     ~ IRedisWriter<TKey, Item> -> JsonRedisWriter or ChunkedJsonRedisWriter
-     ~ IRedisReader<TKey, Item> -> JsonRedisReader or ChunkedJsonRedisReader
-     ~ IRedisWriter<TKey, Item> -> JsonRedisDeleter or ChunkedJsonRedisDeleter
-     (note: for one combination of TKey, TItem - ensure the decision to chunk or not is consistent)
-     ~ For chunking, locking is required:
-             IRedisLockFactory -> RedisLockFactory
-             To override the default of InMemoryRedisLock, call RedisLockFactory.Use<IRedisLock>() <-- your class here
-     ~ IKeygen<TKey> to GenericKeygen<TKey>, or implement a specific one like GuidKeygen
+* IoC wrappers/abstractions<br/>
+   - Just take your dependency on "IRedisClient<TKey, TItem>"<br/>
+   - By default you should configure your DI container to inject the provided RedisClient<TKey, TItem><br/>
+   - Since IoC is used throughout you also need to configure:<br/>
+     ~ IRedisWriter<TKey, Item> -> JsonRedisWriter or ChunkedJsonRedisWriter<br/>
+     ~ IRedisReader<TKey, Item> -> JsonRedisReader or ChunkedJsonRedisReader<br/>
+     ~ IRedisWriter<TKey, Item> -> JsonRedisDeleter or ChunkedJsonRedisDeleter<br/>
+     (note: for one combination of TKey, TItem - ensure the decision to chunk or not is consistent)<br/>
+     ~ For chunking, locking is required:<br/>
+             IRedisLockFactory -> RedisLockFactory<br/>
+             To override the default of InMemoryRedisLock, call RedisLockFactory.Use<IRedisLock>() <-- your class here<br/>
+     ~ IKeygen<TKey> to GenericKeygen<TKey>, or implement a specific one like GuidKeygen<br/>
      
-* Strongly typed access to the cache
-  - Use any C# object as your TKey and TItem, given that:
-      ~ Your TKey is unique by GetHashCode(), or implement your own Keygen
-      ~ Your TItem is serialisable by Newtonsoft.Json
+* Strongly typed access to the cache<br/>
+  - Use any C# object as your TKey and TItem, given that:<br/>
+      ~ Your TKey is unique by GetHashCode(), or implement your own Keygen<br/>
+      ~ Your TItem is serialisable by Newtonsoft.Json<br/>
       
-* Implementing the StackExchange Connection Multiplexer
-  - This is handled by the RedisDatabaseFactory
-  - Not using the usual "Lazy<ConnectionMulitplexer>" approach, as I want to support one multiplexer per connection string (if your app is dealing with more than 1 cache)
-  - The multiplexers are stored in a concurrent dictionary where the connection string is the key
-  - The multiplexer begins connecting asynchronously on first use
+* Implementing the StackExchange Connection Multiplexer<br/>
+  - This is handled by the RedisDatabaseFactory<br/>
+  - Not using the usual "Lazy<ConnectionMulitplexer>" approach, as I want to support one multiplexer per connection string (if your app is dealing with more than 1 cache)<br/>
+  - The multiplexers are stored in a concurrent dictionary where the connection string is the key<br/>
+  - The multiplexer begins connecting asynchronously on first use<br/>
     
-* Sliding expiration of cache keys
-  - Pass in the optional timespan to read methods if you want to use sliding expiration
-  - This updates the expiry when you read the item, so that keys which are still in use for read purposes live longer
+* Sliding expiration of cache keys<br/>
+  - Pass in the optional timespan to read methods if you want to use sliding expiration<br/>
+  - This updates the expiry when you read the item, so that keys which are still in use for read purposes live longer<br/>
   
-* Chunked JSON data
-  - This solves a performance issue whereby Redis does not perform well with large payloads.
-  - The default chunk size is 10KB which can be configured in the ChunkedJsonRedisWriter
-  - The JSON data is streamed from Newtonsoft into a buffer. Every time the buffer is full it is written to Redis under the main cache key with a suffix of "chunkIndex"
-  - The main cache key is then written to contain the count of chunks, which is used by the reader and deleter.
+* Chunked JSON data<br/>
+  - This solves a performance issue whereby Redis does not perform well with large payloads.<br/>
+  - The default chunk size is 10KB which can be configured in the ChunkedJsonRedisWriter<br/>
+  - The JSON data is streamed from Newtonsoft into a buffer. Every time the buffer is full it is written to Redis under the main cache key with a suffix of "chunkIndex"<br/>
+  - The main cache key is then written to contain the count of chunks, which is used by the reader and deleter.<br/>
   
-* Generating keys for objects
-  - I don't like using bytes for keys as they are not human readable, so I like to generate unique strings
-  - I have provided a default GenericKeygen which uses a combination of "ToString()" and "GetHashCode()" to generate a human readable yet unique key.
-  - Since we know Guids are unique, I have demonstrated the ability to create custom keygens which omits GetHashCode in this case.
+* Generating keys for objects<br/>
+  - I don't like using bytes for keys as they are not human readable, so I like to generate unique strings<br/>
+  - I have provided a default GenericKeygen which uses a combination of "ToString()" and "GetHashCode()" to generate a human readable yet unique key.<br/>
+  - Since we know Guids are unique, I have demonstrated the ability to create custom keygens which omits GetHashCode in this case.<br/>
 
 
 The code can be extended to support other serialisation types (TODO), distributed locks (TODO), different ways of generating keys or whatever you need it to do.
