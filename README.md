@@ -35,6 +35,7 @@ Those being:
   
 * Chunked JSON data<br/>
   - This solves a performance issue whereby Redis does not perform well with large payloads.<br/>
+  - Sometimes you may also have had errors from the server when the queue is full.<br/>
   - The default chunk size is 10KB which can be configured in the ChunkedJsonRedisWriter<br/>
   - The JSON data is streamed from Newtonsoft into a buffer. Every time the buffer is full it is written to Redis under the main cache key with a suffix of "chunkIndex"<br/>
   - The main cache key is then written to contain the count of chunks, which is used by the reader and deleter.<br/>
