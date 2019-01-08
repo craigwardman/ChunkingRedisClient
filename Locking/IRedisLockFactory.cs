@@ -1,6 +1,6 @@
 ﻿using StackExchange.Redis;
 
-namespace JsonRedis.Locking
+namespace ChunkingRedisClient.Locking
 {
     public interface IRedisLockFactory
     {

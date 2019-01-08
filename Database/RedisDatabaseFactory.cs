@@ -2,7 +2,7 @@
 using System.Threading.Tasks;
 using StackExchange.Redis;
 
-namespace JsonRedis.Database
+namespace ChunkingRedisClient.Database
 {
     internal static class RedisDatabaseFactory
     {

@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Threading.Tasks;
-using JsonRedis.Keys;
+using ChunkingRedisClient.Keys;
 using StackExchange.Redis;
 
-namespace JsonRedis.Client.Deleter
+namespace ChunkingRedisClient.Client.Deleter
 {
     public class StandardDeleter<TKey, TItem> : IRedisDeleter<TKey, TItem>
     {

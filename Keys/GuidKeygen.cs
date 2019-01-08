@@ -1,7 +1,7 @@
 ﻿using System;
 using StackExchange.Redis;
 
-namespace JsonRedis.Keys
+namespace ChunkingRedisClient.Keys
 {
     public class GuidKeygen : IKeygen<Guid>
     {

@@ -1,7 +1,7 @@
 ﻿using System.Threading.Tasks;
 using StackExchange.Redis;
 
-namespace JsonRedis.Client.Deleter
+namespace ChunkingRedisClient.Client.Deleter
 {
     public interface IRedisDeleter<in TKey, TItem>
     {

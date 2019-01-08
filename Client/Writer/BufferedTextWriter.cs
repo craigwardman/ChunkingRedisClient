@@ -2,7 +2,7 @@
 using System.IO;
 using System.Text;
 
-namespace JsonRedis.Client.Writer
+namespace ChunkingRedisClient.Client.Writer
 {
     public class BufferedTextWriter : TextWriter
     {

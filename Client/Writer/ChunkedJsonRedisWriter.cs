@@ -1,11 +1,11 @@
 ﻿using System;
 using System.Threading.Tasks;
-using JsonRedis.Keys;
-using JsonRedis.Locking;
+using ChunkingRedisClient.Keys;
+using ChunkingRedisClient.Locking;
 using Newtonsoft.Json;
 using StackExchange.Redis;
 
-namespace JsonRedis.Client.Writer
+namespace ChunkingRedisClient.Client.Writer
 {
     public class ChunkedJsonRedisWriter<TKey, TItem> : IRedisWriter<TKey, TItem>
     {

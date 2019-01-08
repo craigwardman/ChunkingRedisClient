@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Threading.Tasks;
 
-namespace JsonRedis.Client
+namespace ChunkingRedisClient.Client
 {
     public interface IRedisClient<in TKey, TItem>
     {

@@ -1,6 +1,6 @@
 ﻿using StackExchange.Redis;
 
-namespace JsonRedis.Keys
+namespace ChunkingRedisClient.Keys
 {
     public class GenericKeygen<TInput> : IKeygen<TInput>
     {

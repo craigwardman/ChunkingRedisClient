@@ -1,11 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using JsonRedis.Keys;
-using JsonRedis.Locking;
+using ChunkingRedisClient.Keys;
+using ChunkingRedisClient.Locking;
 using StackExchange.Redis;
 
-namespace JsonRedis.Client.Deleter
+namespace ChunkingRedisClient.Client.Deleter
 {
     public class ChunkedDeleter<TKey, TItem> : IRedisDeleter<TKey, TItem>
     {

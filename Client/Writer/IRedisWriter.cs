@@ -2,7 +2,7 @@
 using System.Threading.Tasks;
 using StackExchange.Redis;
 
-namespace JsonRedis.Client.Writer
+namespace ChunkingRedisClient.Client.Writer
 {
     public interface IRedisWriter<in TKey, in TItem>
     {

@@ -2,12 +2,12 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using JsonRedis.Keys;
-using JsonRedis.Locking;
+using ChunkingRedisClient.Keys;
+using ChunkingRedisClient.Locking;
 using Newtonsoft.Json;
 using StackExchange.Redis;
 
-namespace JsonRedis.Client.Reader
+namespace ChunkingRedisClient.Client.Reader
 {
     public class ChunkedJsonRedisReader<TKey, TItem> : IRedisReader<TKey, TItem>
     {

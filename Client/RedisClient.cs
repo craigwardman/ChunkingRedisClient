@@ -1,13 +1,13 @@
 ﻿using System;
 using System.Threading.Tasks;
-using JsonRedis.Client.Deleter;
-using JsonRedis.Client.Reader;
-using JsonRedis.Client.Writer;
-using JsonRedis.Database;
+using ChunkingRedisClient.Client.Deleter;
+using ChunkingRedisClient.Client.Reader;
+using ChunkingRedisClient.Client.Writer;
+using ChunkingRedisClient.Database;
 using StackExchange.Redis;
 using StackExchange.Redis.KeyspaceIsolation;
 
-namespace JsonRedis.Client
+namespace ChunkingRedisClient.Client
 {
     public class RedisClient<TKey, TItem> : IRedisClient<TKey, TItem>
     {

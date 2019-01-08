@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Threading.Tasks;
 
-namespace JsonRedis.Locking
+namespace ChunkingRedisClient.Locking
 {
     public interface IRedisLock : IDisposable
     {

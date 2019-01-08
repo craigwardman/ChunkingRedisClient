@@ -3,7 +3,7 @@ using System.Linq.Expressions;
 using System.Reflection;
 using StackExchange.Redis;
 
-namespace JsonRedis.Locking
+namespace ChunkingRedisClient.Locking
 {
     public class RedisLockFactory : IRedisLockFactory
     {

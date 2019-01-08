@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Text;
 
-namespace JsonRedis.Client.Writer
+namespace ChunkingRedisClient.Client.Writer
 {
     public class BufferFullEventArgs : EventArgs
     {

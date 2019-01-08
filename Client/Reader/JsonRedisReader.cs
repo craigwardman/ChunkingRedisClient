@@ -1,10 +1,10 @@
 ﻿using System;
 using System.Threading.Tasks;
-using JsonRedis.Keys;
+using ChunkingRedisClient.Keys;
 using Newtonsoft.Json;
 using StackExchange.Redis;
 
-namespace JsonRedis.Client.Reader
+namespace ChunkingRedisClient.Client.Reader
 {
     public class JsonRedisReader<TKey, TItem> : IRedisReader<TKey, TItem>
     {
