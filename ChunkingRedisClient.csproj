@@ -9,6 +9,7 @@
     <RepositoryUrl>https://github.com/craigwardman/ChunkingRedisClient</RepositoryUrl>
     <RepositoryType>GitHub</RepositoryType>
     <PackageTags>redis client</PackageTags>
+    <PackageLicenseUrl>https://github.com/craigwardman/ChunkingRedisClient/blob/master/LICENSE</PackageLicenseUrl>
   </PropertyGroup>
 
   <ItemGroup>
