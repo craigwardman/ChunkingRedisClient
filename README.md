@@ -1,6 +1,9 @@
 # Chunking Redis Client
 A library which wraps the StackExchange.Redis client, specifically using JSON serialisation, and adds functionality such as chunked reading/writing and sliding expiration.
 
+To install without the source, use the NuGet package:
+https://www.nuget.org/packages/ChunkingRedisClient/
+
 The purpose of this library is to create a re-usable library of code (NB. which I need to put into a NuGet package) for wrapping the StackExchange.RedisClient and solving the issues I usually need to solve.
 
 Those being:
