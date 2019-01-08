@@ -2,6 +2,13 @@
 
   <PropertyGroup>
     <TargetFramework>netcoreapp2.2</TargetFramework>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <Authors>Craig Wardman</Authors>
+    <Description>Wrapper for StackExchange.Redis client with chunking extensions, sliding expiration and other features.</Description>
+    <PackageProjectUrl>https://github.com/craigwardman/ChunkingRedisClient</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/craigwardman/ChunkingRedisClient</RepositoryUrl>
+    <RepositoryType>GitHub</RepositoryType>
+    <PackageTags>redis client</PackageTags>
   </PropertyGroup>
 
   <ItemGroup>
