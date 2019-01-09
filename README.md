@@ -4,7 +4,7 @@ A library which wraps the StackExchange.Redis client, specifically using JSON se
 To install without the source, use the NuGet package:
 https://www.nuget.org/packages/ChunkingRedisClient/
 
-The purpose of this library is to create a re-usable library of code (NB. which I need to put into a NuGet package) for wrapping the StackExchange.RedisClient and solving the issues I usually need to solve.
+The purpose of this library is to create a re-usable library of code for wrapping the StackExchange.RedisClient and solving the issues I usually need to solve.
 
 Those being:
 
