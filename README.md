@@ -16,7 +16,7 @@ Those being:
      ~ IRedisReader<TKey, Item> -> JsonRedisReader or ChunkedJsonRedisReader<br/>
      ~ IRedisWriter<TKey, Item> -> JsonRedisDeleter or ChunkedJsonRedisDeleter<br/>
      (note: for one combination of TKey, TItem - ensure the decision to chunk or not is consistent)<br/>
-     ~ IKeygen<TKey> to GenericKeygen<TKey>, or implement a specific one like GuidKeygen<br/>
+     ~ IKeygen<TKey> to an object specific implementation, like GuidKeygen<br/>
      ~ For chunking, locking is required:<br/>
              IRedisLockFactory -> RedisLockFactory<br/>
              To override the default of InMemoryRedisLock, call RedisLockFactory.Use&lt;IRedisLock&gt;() <-- your class here<br/>
@@ -45,8 +45,8 @@ Those being:
   
 * Generating keys for objects<br/>
   - I don't like using bytes for keys as they are not human readable, so I like to generate unique strings<br/>
-  - I have provided a default GenericKeygen which uses a combination of "ToString()" and "GetHashCode()" to generate a human readable yet unique key.<br/>
-  - Since we know Guids are unique, I have demonstrated the ability to create custom keygens which omits GetHashCode in this case.<br/>
+  - There is no none-intrusive way of providing a type agnostic generic keygen, therefore you must write your own. If you write something for a CLR type, considering contributing it to the project!
+  - Since we know Guids are unique, I have demonstrated the ability to create custom keygens.<br/>
 
 
 The code can be extended to support other serialisation types (TODO), distributed locks (TODO), different ways of generating keys or whatever you need it to do.
