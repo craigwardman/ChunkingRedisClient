@@ -9,17 +9,17 @@ The purpose of this library is to create a re-usable library of code for wrappin
 Those being:
 
 * IoC wrappers/abstractions<br/>
-   - Just take your dependency on "IRedisClient<TKey, TItem>"<br/>
+   - Just take your dependency on `IRedisClient<TKey, TItem>`<br/>
    - By default you should configure your DI container to inject the provided RedisClient<TKey, TItem><br/>
    - Since IoC is used throughout you also need to configure:<br/>
-     ~ IRedisWriter<TKey, Item> -> JsonRedisWriter or ChunkedJsonRedisWriter<br/>
-     ~ IRedisReader<TKey, Item> -> JsonRedisReader or ChunkedJsonRedisReader<br/>
-     ~ IRedisWriter<TKey, Item> -> JsonRedisDeleter or ChunkedJsonRedisDeleter<br/>
+     ~ `IRedisWriter<TKey, Item>` -> JsonRedisWriter or ChunkedJsonRedisWriter<br/>
+     ~ `IRedisReader<TKey, Item>` -> JsonRedisReader or ChunkedJsonRedisReader<br/>
+     ~ `IRedisWriter<TKey, Item>` -> JsonRedisDeleter or ChunkedJsonRedisDeleter<br/>
      (note: for one combination of TKey, TItem - ensure the decision to chunk or not is consistent)<br/>
-     ~ IKeygen<TKey> to an object specific implementation, like GuidKeygen<br/>
+     ~ `IKeygen<TKey>` to an object specific implementation, like GuidKeygen<br/>
      ~ For chunking, locking is required:<br/>
              IRedisLockFactory -> RedisLockFactory<br/>
-             To override the default of InMemoryRedisLock, call RedisLockFactory.Use&lt;IRedisLock&gt;() <-- your class here<br/>
+             To override the default of InMemoryRedisLock, call `RedisLockFactory.Use<IRedisLock>() <-- your class here`<br/>
      
 * Strongly typed access to the cache<br/>
   - Use any C# object as your TKey and TItem, given that:<br/>
@@ -28,7 +28,7 @@ Those being:
       
 * Implementing the StackExchange Connection Multiplexer<br/>
   - This is handled by the RedisDatabaseFactory<br/>
-  - Not using the usual "Lazy<ConnectionMulitplexer>" approach, as I want to support one multiplexer per connection string (if your app is dealing with more than 1 cache)<br/>
+  - Not using the usual `Lazy<ConnectionMulitplexer>` approach, as I want to support one multiplexer per connection string (if your app is dealing with more than 1 cache)<br/>
   - The multiplexers are stored in a concurrent dictionary where the connection string is the key<br/>
   - The multiplexer begins connecting asynchronously on first use<br/>
     
