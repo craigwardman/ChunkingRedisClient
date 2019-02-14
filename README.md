@@ -23,7 +23,7 @@ Those being:
      
 * Strongly typed access to the cache<br/>
   - Use any C# object as your TKey and TItem, given that:<br/>
-      ~ Your TKey is unique by GetHashCode(), or implement your own Keygen<br/>
+      ~ You can implement your own Keygen for TKey<br/>
       ~ Your TItem is serialisable by Newtonsoft.Json<br/>
       
 * Implementing the StackExchange Connection Multiplexer<br/>
