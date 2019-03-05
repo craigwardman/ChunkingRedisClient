@@ -18,9 +18,9 @@ namespace ChunkingRedisClient.Client
         private readonly string _keyPrefix;
         private IDatabase _prefixedDatabase;
 
-        public RedisClient(string connectionString, IRedisWriter<TKey, TItem> redisWriter, IRedisReader<TKey, TItem> redisReader, IRedisDeleter<TKey, TItem> redisDeleter)
+        public RedisClient(IRedisClientConfig config, IRedisWriter<TKey, TItem> redisWriter, IRedisReader<TKey, TItem> redisReader, IRedisDeleter<TKey, TItem> redisDeleter)
         {
-            _connectionString = connectionString ?? throw new ArgumentNullException(nameof(connectionString));
+            _connectionString = string.IsNullOrEmpty(config?.ConnectionString) ? throw new ArgumentNullException(nameof(config.ConnectionString)) : config.ConnectionString;
             _redisWriter = redisWriter ?? throw new ArgumentNullException(nameof(redisWriter));
             _redisReader = redisReader ?? throw new ArgumentNullException(nameof(redisReader));
             _redisDeleter = redisDeleter ?? throw new ArgumentNullException(nameof(redisDeleter));
