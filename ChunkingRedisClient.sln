@@ -3,11 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.28307.136
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ChunkingRedisClient", "ChunkingRedisClient.csproj", "{654B6737-EB52-4E2E-BCE9-36E9FFE935F6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ChunkingRedisClient", "..\ChunkingRedisClient\src\ChunkingRedisClient.csproj", "{654B6737-EB52-4E2E-BCE9-36E9FFE935F6}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{571282D0-010E-42C5-9A20-4FCAB818AB73}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ChunkingRedisClient.Tests", "..\ChunkingRedisClient.Tests\ChunkingRedisClient.Tests.csproj", "{37A28A80-CEF6-4534-A717-7ED6184B3590}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ChunkingRedisClient.Tests", "..\ChunkingRedisClient\tests\ChunkingRedisClient.Tests\ChunkingRedisClient.Tests.csproj", "{37A28A80-CEF6-4534-A717-7ED6184B3590}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
