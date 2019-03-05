@@ -1,6 +1,6 @@
 ﻿namespace ChunkingRedisClient.Client
 {
-    public class RedisClientConfig
+    public sealed class RedisClientConfig
     {
         public string ConnectionString { get; set; }
     }
