@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using System.Collections.Generic;
 
 namespace ChunkingRedisClient.Tests.TestObjects
 {
@@ -14,36 +12,11 @@ namespace ChunkingRedisClient.Tests.TestObjects
             {
                 products.Add(new Product
                 {
-                    ProductPriceHistory = GenerateRandomPriceHistory(20).ToList(),
-                    SalesAndOrdersHistory = GenerateRandomSales(20).ToList()
+                    ProductId = (i + 1) * 10
                 });
             }
 
             return products;
-        }
-
-        private static IEnumerable<ProductSalesAndOrders> GenerateRandomSales(int v)
-        {
-            for (int i = 0; i < v; i++)
-                yield return new ProductSalesAndOrders
-                {
-                    Orders = 100,
-                    ProductId = i + 1,
-                    Sales = 2,
-                    WeekNumber = 3,
-                    Year = 2018
-                };
-        }
-
-        private static IEnumerable<PriceHistory> GenerateRandomPriceHistory(int v)
-        {
-            for (int i = 0; i < v; i++)
-                yield return new PriceHistory
-                {
-                    Price = 100,
-                    ProductId = i + 1,
-                    PublishDate = DateTime.UtcNow
-                };
         }
     }
 }
