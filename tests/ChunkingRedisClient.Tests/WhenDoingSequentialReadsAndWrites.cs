@@ -23,7 +23,7 @@ namespace ChunkingRedisClient.Tests
                 new RedisClient<Guid, Product>(
                     new RedisClientConfig
                     {
-                        ConnectionString = "localhost:6379"
+                        ConnectionString = "my-redis:6379"
                     },
                     new ChunkedJsonRedisWriter<Guid, Product>(
                         keyGen, new RedisLockFactory(), 0),
