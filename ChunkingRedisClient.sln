@@ -5,7 +5,7 @@ VisualStudioVersion = 15.0.28307.136
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ChunkingRedisClient", "src\ChunkingRedisClient.csproj", "{654B6737-EB52-4E2E-BCE9-36E9FFE935F6}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ChunkingRedisClient.IntegrationTests", "tests\ChunkingRedisClient.Tests\ChunkingRedisClient.IntegrationTests.csproj", "{37A28A80-CEF6-4534-A717-7ED6184B3590}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ChunkingRedisClient.IntegrationTests", "tests\ChunkingRedisClient.IntegrationTests\ChunkingRedisClient.IntegrationTests.csproj", "{37A28A80-CEF6-4534-A717-7ED6184B3590}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
